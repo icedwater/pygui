@@ -10,14 +10,17 @@ class MyFrame(wx.Frame):
         self.CreateStatusBar()
 
         filemenu = wx.Menu()
-        menuAbout = filemenu.Append(wx.ID_ABOUT, "&About", "Information about the program")
         menuOpen = filemenu.Append(wx.ID_OPEN, "&Open", "Open a file")
         menuSave = filemenu.Append(wx.ID_SAVE, "&Save", "Save a file")
         filemenu.AppendSeparator()
         menuExit = filemenu.Append(wx.ID_EXIT, "E&xit", "Leave the program")
 
+        helpmenu = wx.Menu()
+        menuAbout = helpmenu.Append(wx.ID_ABOUT, "&About", "Information about the program")
+
         menuBar = wx.MenuBar()
         menuBar.Append(filemenu, "&File")
+        menuBar.Append(helpmenu, "&Help")
         self.SetMenuBar(menuBar)
 
         self.Bind(wx.EVT_MENU, self.OnOpen, menuOpen)
